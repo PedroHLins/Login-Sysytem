@@ -1,0 +1,6 @@
+@Login_Sysytem_HostAddress = http://localhost:5174
+
+GET {{Login_Sysytem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
