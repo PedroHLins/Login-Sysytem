@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using LS.data;
 using Microsoft.Extensions.Options;
+using LS.dto;
+using LS.models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,8 +23,23 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/", () => "Olá");
+app.MapPost("/register", (UserRegisterRequest user, ApplicationDbContext db) =>
+{
+    string userPassword = user.Password!;
 
-app.MapGet("/{nome}", (string nome) => $"olá {nome}");
+    string passwordHashed = BCrypt.Net.BCrypt.HashPassword(userPassword);
+
+    User newUser = new User
+    {
+        Name = user.Name!,
+        Email = user.Email!,
+        PasswordHash = passwordHashed!
+    };
+
+    db.Usuarios.Add(newUser);
+    db.SaveChanges();
+
+    return Results.Ok("User sucessfully created!");
+});
 
 app.Run();

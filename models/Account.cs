@@ -16,5 +16,5 @@ abstract class Account
     public required string Email { get; set; }
     [Required]
     [StringLength(100)]
-    public required string Password { get; set; }
+    public required string PasswordHash { get; set; }
 }

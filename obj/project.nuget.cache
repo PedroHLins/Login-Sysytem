@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "v1YeN90xrxo=",
+  "dgSpecHash": "0goZV6uAN4g=",
   "success": true,
   "projectFilePath": "/home/pedrohlins/Programação/C#/Pessoal/Login-Sysytem/Login-Sysytem.csproj",
   "expectedPackageFiles": [
+    "/home/pedrohlins/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/home/pedrohlins/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/pedrohlins/.nuget/packages/microsoft.aspnetcore.openapi/9.0.9/microsoft.aspnetcore.openapi.9.0.9.nupkg.sha512",
     "/home/pedrohlins/.nuget/packages/microsoft.bcl.asyncinterfaces/7.0.0/microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
