@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("33931fe4-5120-4472-a387-1284738291a7")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Login-Sysytem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e12c462f22873e0dc74f05b8565ff0c13cc390e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f784557644402373c71f2d69aa64e9b866f405cb")]
 [assembly: System.Reflection.AssemblyProductAttribute("Login-Sysytem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Login-Sysytem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

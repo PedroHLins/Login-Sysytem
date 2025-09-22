@@ -1,4 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using LS.data;
+using Microsoft.Extensions.Options;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<ApplicationDbContext>(Options => Options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 builder.Services.AddSwaggerGen();
 builder.Services.AddEndpointsApiExplorer();

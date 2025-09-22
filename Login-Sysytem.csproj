@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Login_Sysytem</RootNamespace>
+    <UserSecretsId>33931fe4-5120-4472-a387-1284738291a7</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
