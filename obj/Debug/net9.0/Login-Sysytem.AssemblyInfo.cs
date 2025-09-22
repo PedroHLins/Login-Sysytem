@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Login-Sysytem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4069d210b84ba7ecc762bb353b6dc3bfc34dd29f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9284a8b79605e88abdaf6d60e6db53a8c8042f6a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Login-Sysytem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Login-Sysytem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
