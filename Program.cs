@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<ApplicationDbContext>(Options => Options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
-
+builder.Services.AddScoped<UserService>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddEndpointsApiExplorer();
 
@@ -23,35 +23,31 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapPost("/register", (UserRegisterRequest request, ApplicationDbContext db) =>
+
+app.MapPost("/register", async (UserRegisterRequest request, UserService userService) =>
 {
-    string userPassword = request.Password!;
-
-    string passwordHashed = BCrypt.Net.BCrypt.HashPassword(userPassword);
-
-    User newUser = new User
+    try
     {
-        Name = request.Name!,
-        Email = request.Email!,
-        PasswordHash = passwordHashed!
-    };
-
-    db.Usuarios.Add(newUser);
-    db.SaveChanges();
-
-    return Results.Ok("User sucessfully created!");
+        User user = await userService.RegisterUserAsync(request);
+        return Results.Ok(new { message = "User sucessfully created! ", userID = user.Id });
+    }
+    catch (Exception ex)
+    {
+        return Results.Conflict(ex.Message);
+    }
 });
 
-app.MapPost("/login", async (UserLoginRequest request, ApplicationDbContext db) =>
+app.MapPost("/login", async (UserLoginRequest request, UserService userService) =>
 {
-    var user = await db.Usuarios.FirstOrDefaultAsync(u => u.Email == request.Email);
-
-    if (request.Password == null || !BCrypt.Net.BCrypt.Verify(request.Password, user!.PasswordHash))
+    try
+    {
+        User user = await userService.LoginUserAsync(request);
+        return Results.Ok("Sucessfully login");
+    }
+    catch (Exception)
     {
         return Results.Unauthorized();
     }
-
-    return Results.Ok("Sucessfully login");
 });
 
 app.Run();
